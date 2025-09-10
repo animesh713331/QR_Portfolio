@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aditya Kumar | Verified Web Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0d0c1d;
+            background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.05) 1px, transparent 0);
+            background-size: 25px 25px;
+            color: #e0e0e0;
+        }
+
+        .font-mono {
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        .glass-card {
+            background: rgba(26, 17, 34, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(128, 19, 236, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+        
+        /* --- Text & Badge Animations --- */
+        .animated-gradient-text {
+            background: linear-gradient(90deg, #9333ea, #4f46e5, #ec4899, #9333ea);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradient-flow 5s ease infinite;
+        }
+
+        @keyframes gradient-flow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .badge-pulse {
+            animation: pulse-glow 2s infinite cubic-bezier(0.4, 0, 0.6, 1);
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% {
+                box-shadow: 0 0 5px #22c55e, 0 0 10px #22c55e;
+            }
+            50% {
+                box-shadow: 0 0 15px #22c55e, 0 0 25px #22c55e;
+            }
+        }
+
+        /* --- Profile Picture Glow --- */
+        .avatar-glow {
+            position: relative;
+        }
+        .avatar-glow::before {
+            content: '';
+            position: absolute;
+            top: -4px; left: -4px; right: -4px; bottom: -4px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #8013ec, #4f46e5, #ec4899);
+            filter: blur(10px);
+            z-index: -1;
+            animation: spin 4s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* --- Moving Marquee Text --- */
+        .marquee {
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+        }
+        .marquee-content {
+            display: inline-block;
+            white-space: nowrap;
+            animation: marquee 20s linear infinite;
+            padding-left: 100%;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* --- Scroll-triggered Animations --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .progress-bar-inner {
+            width: 0%;
+            transition: width 1s ease-out;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="max-w-4xl mx-auto p-4 sm:p-8">
+        
+        <!-- --- Profile Header --- -->
+        <header class="flex flex-col sm:flex-row items-center text-center sm:text-left gap-8 mb-16 reveal">
+            <div class="avatar-glow">
+                <img src="./Student_avatar_male.jpg" alt="Aditya Kumar" class="h-40 w-40 rounded-full object-cover border-4 border-[#1a1122] shadow-lg relative z-10"/>
+            </div>
+            <div class="flex-1">
+                <h1 class="text-4xl sm:text-5xl font-bold animated-gradient-text">Aditya Kumar</h1>
+                <p class="text-lg text-gray-300 mt-2">Computer Science Engineering</p>
+                <p class="text-md text-gray-400 font-mono">Enrollment: 27CSE67 | Session: 2023-27</p>
+                <span class="inline-flex items-center gap-2 mt-4 px-3 py-1 bg-green-500/10 text-green-400 text-sm font-semibold rounded-full border border-green-500/30 badge-pulse">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                    Verified Portfolio
+                </span>
+            </div>
+        </header>
+
+        <!-- --- Stats Overview --- -->
+        <section class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-16">
+            <div class="glass-card p-6 rounded-lg text-center reveal" style="transition-delay: 100ms;">
+                <div class="text-4xl mb-2">⭐</div>
+                <p class="text-4xl font-bold" data-counter="35">0</p>
+                <p class="text-sm text-gray-400">Total Credit Points</p>
+            </div>
+            <div class="glass-card p-6 rounded-lg text-center reveal" style="transition-delay: 200ms;">
+                <div class="text-4xl mb-2">✅</div>
+                <p class="text-4xl font-bold" data-counter="3">0</p>
+                <p class="text-sm text-gray-400">Approved Activities</p>
+            </div>
+            <div class="glass-card p-6 rounded-lg text-center reveal" style="transition-delay: 300ms;">
+                <div class="text-4xl mb-2">🏆</div>
+                <p class="text-4xl font-bold" data-counter="2">0</p>
+                <p class="text-sm text-gray-400">Badges Earned</p>
+            </div>
+        </section>
+
+        <!-- --- Main Content Grid --- -->
+        <section class="grid grid-cols-1 lg:grid-cols-5 gap-8 mb-16">
+            <!-- Left Column -->
+            <div class="lg:col-span-2 space-y-8">
+                <div class="glass-card p-6 rounded-lg reveal">
+                    <h2 class="text-2xl font-bold mb-6">Skills Overview</h2>
+                    <div class="space-y-6">
+                        <div class="skill-item" data-level="90"><div class="flex justify-between items-center mb-1"><p class="font-semibold">💻 Technical</p><p class="text-sm font-mono text-purple-300">90%</p></div><div class="w-full rounded-full h-2.5 bg-[#362348]"><div class="progress-bar-inner bg-gradient-to-r from-[#4F46E5] to-[#8013ec] h-2.5 rounded-full"></div></div></div>
+                        <div class="skill-item" data-level="75"><div class="flex justify-between items-center mb-1"><p class="font-semibold">👑 Leadership</p><p class="text-sm font-mono text-purple-300">75%</p></div><div class="w-full rounded-full h-2.5 bg-[#362348]"><div class="progress-bar-inner bg-gradient-to-r from-[#4F46E5] to-[#8013ec] h-2.5 rounded-full"></div></div></div>
+                        <div class="skill-item" data-level="60"><div class="flex justify-between items-center mb-1"><p class="font-semibold">🗣️ Communication</p><p class="text-sm font-mono text-purple-300">60%</p></div><div class="w-full rounded-full h-2.5 bg-[#362348]"><div class="progress-bar-inner bg-gradient-to-r from-[#4F46E5] to-[#8013ec] h-2.5 rounded-full"></div></div></div>
+                        <div class="skill-item" data-level="45"><div class="flex justify-between items-center mb-1"><p class="font-semibold">🎨 Creativity</p><p class="text-sm font-mono text-purple-300">45%</p></div><div class="w-full rounded-full h-2.5 bg-[#362348]"><div class="progress-bar-inner bg-gradient-to-r from-[#4F46E5] to-[#8013ec] h-2.5 rounded-full"></div></div></div>
+                    </div>
+                </div>
+                <div class="glass-card p-6 rounded-lg reveal">
+                    <h2 class="text-2xl font-bold mb-6">Achievements</h2>
+                    <div class="grid grid-cols-2 gap-4">
+                       <div class="bg-[#1a1122] p-4 rounded-lg border border-[#4d3267] flex flex-col items-center text-center transition-transform duration-300 hover:scale-105 hover:border-purple-500"><div class="text-5xl mb-2">🤖</div><p class="font-bold text-sm">Tech Expert</p></div>
+                       <div class="bg-[#1a1122] p-4 rounded-lg border border-[#4d3267] flex flex-col items-center text-center transition-transform duration-300 hover:scale-105 hover:border-purple-500"><div class="text-5xl mb-2">🤝</div><p class="font-bold text-sm">Social Contributor</p></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="lg:col-span-3 glass-card p-6 rounded-lg reveal">
+                <div class="marquee"><h2 class="text-2xl font-bold mb-2 marquee-content">Verified Activities & Credentials &nbsp;&nbsp;&nbsp;&nbsp; Verified Activities & Credentials &nbsp;&nbsp;&nbsp;&nbsp;</h2></div>
+                <div class="bg-purple-500/10 text-purple-300 text-xs p-3 rounded-lg mb-4 flex items-start gap-2">
+                    <span>ℹ️</span>
+                    <p>Verification links point to the Sepolia Testnet, a public blockchain for testing. This demonstrates real-world verification capability without using real money.</p>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full min-w-max text-left">
+                        <thead class="border-b border-purple-800">
+                            <tr>
+                                <th class="p-3 text-sm font-semibold uppercase">Activity</th>
+                                <th class="p-3 text-sm font-semibold uppercase">Type</th>
+                                <th class="p-3 text-sm font-semibold uppercase">Date</th>
+                                <th class="p-3 text-sm font-semibold uppercase text-center">Points</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-[#362348] hover:bg-purple-500/10">
+                                <td class="p-3 font-medium">
+                                    Workshop on AI Ethics
+                                    <a href="https://sepolia.etherscan.io/address/0x31ec640aF8CcC22672D7b9Dc7cbcBe3e5e6023F6" target="_blank" rel="noopener noreferrer" class="block text-xs font-mono text-purple-400 hover:underline">
+                                        Verify on Chain
+                                    </a>
+                                </td>
+                                <td class="p-3 text-gray-300">Workshop</td>
+                                <td class="p-3 text-gray-300">2024-05-15</td>
+                                <td class="p-3 font-bold text-purple-400 text-center">20</td>
+                            </tr>
+                            <tr class="border-b border-[#362348] hover:bg-purple-500/10">
+                                <td class="p-3 font-medium">
+                                    Tech Fest Volunteer
+                                    <a href="https://sepolia.etherscan.io/tx/0x1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b" target="_blank" rel="noopener noreferrer" class="block text-xs font-mono text-purple-400 hover:underline">
+                                        Verify on Chain
+                                    </a>
+                                </td>
+                                <td class="p-3 text-gray-300">Volunteering</td>
+                                <td class="p-3 text-gray-300">2024-03-10</td>
+                                <td class="p-3 font-bold text-purple-400 text-center">10</td>
+                            </tr>
+                            <tr class="hover:bg-purple-500/10">
+                                <td class="p-3 font-medium">
+                                    Club Volunteering
+                                    <a href="https://sepolia.etherscan.io/tx/0x2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c" target="_blank" rel="noopener noreferrer" class="block text-xs font-mono text-purple-400 hover:underline">
+                                        Verify on Chain
+                                    </a>
+                                </td>
+                                <td class="p-3 text-gray-300">Volunteering</td>
+                                <td class="p-3 text-gray-300">2024-02-18</td>
+                                <td class="p-3 font-bold text-purple-400 text-center">5</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- --- Footer --- -->
+        <footer class="mt-16 text-center text-gray-500 reveal">
+            <p class="text-xs">Generated by Smart Student Hub</p>
+        </footer>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Animate Counters ---
+            const counters = document.querySelectorAll('[data-counter]');
+            counters.forEach(counter => { const target = +counter.getAttribute('data-counter'); let current = 0; const increment = target / 100; const updateCounter = () => { if (current < target) { current += increment; counter.innerText = Math.ceil(current); requestAnimationFrame(updateCounter); } else { counter.innerText = target; } }; updateCounter(); });
+            
+            // --- Intersection Observer for Scroll Animations ---
+            const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); if (entry.target.classList.contains('skill-item')) { const progressBar = entry.target.querySelector('.progress-bar-inner'); const level = entry.target.getAttribute('data-level'); setTimeout(() => { progressBar.style.width = `${level}%`; }, 200); } observer.unobserve(entry.target); } }); }, { threshold: 0.1 });
+            
+            document.querySelectorAll('.reveal, .skill-item').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
+
